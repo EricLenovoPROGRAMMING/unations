@@ -1,0 +1,232 @@
+<xml>
+
+</xml>
+<metadata>
+	<name>KALINGA</name>
+	<title>Kalinga - the people who use Bodong, a judicial system</title>
+	<keyframes>
+		<animation name="fade">
+			<keyframe t="0%" a="
+			 	opacity: 0%;
+				right: 11em;
+			 " />
+			<keyframe t="100%" a="
+			 	opacity: 100%;
+				right: 0em;
+			 " />
+		</animation>
+
+		<animation name="hover">
+			<keyframe t="0%" a="
+			 	--red: 0%;
+				top: 11em;
+			 " />
+			<keyframe t="100%" a="
+			 	opacity: 100%;
+				right: 0em;
+			 " />
+		</animation>
+
+		
+	</keyframes>
+	<script>
+		let base = "luzon/kalinga";
+		__local.showNote = async (header, note) => {
+			
+			let i = getElementById("note");
+			if (note) {
+				getElementById("skrol").scrollTop = 0;;
+				let cacheTest = cache.getCache("files/" + base + "/" + note + ".xml");
+				let e = "";
+				if (cacheTest) {
+					e = cacheTest;
+				} else {
+					let ea = await load("files/" + base + "/" + note + ".xml");
+					cache.setCache("files/" + base + "/" + note + ".xml", ea);
+					e = ea;
+				}
+				i.innerHTML = e;
+			}
+			getElementById("header-title").innerHTML = (header || "").trim() + " - Kalinga";
+			let container = getElementById("note-container");
+			container.style.opacity = "100%";
+			
+			container.style.pointerEvents = "auto";
+			container.style.animation = "fade-in 0.2s 1 linear";
+			let win = getElementById("note-window");
+			win.style.width = win.style.height = "calc(100% - 1em)";
+		}
+		__local.hideNote = () => {
+			let container = getElementById("note-container");
+			container.style.opacity = "0%";
+			container.style.pointerEvents = "none";
+			container.style.animation = "fade-out 0.2s 1 linear";
+			let win = getElementById("note-window");
+			win.style.width = win.style.height = "0%";
+		}
+		let listenResize = (ev) => {
+			setTimeout(() => {
+				let grid = getElementById("bg");
+				let aspectRatio = 16 / 9;
+				let width = contentSize.width;
+				let height = contentSize.height;
+				//let aspectRatio = 25 / 20;
+				let mult = 0.85;
+				//grid.style.width = width + "px";
+
+				content.style.overflowY = "hidden";
+				content.style.overflowX = "hidden";
+				let kh = 0;
+
+
+
+				let portraitWidth = height * aspectRatio;
+				let portraitHeight = height;
+				let landscapeHeight = width;
+				let landscapeWidth = width * aspectRatio;
+
+				if (width < height) {
+					grid.style.width = ~~(portraitWidth) + "px";
+					grid.style.height = ~~(portraitHeight) + "px";
+
+				} else {
+					grid.style.width = ~~(landscapeWidth) + "px";
+					grid.style.height = ~~(landscapeHeight) + "px";
+				}
+
+
+
+
+
+				//console.log(kk)
+
+			}, 100);
+
+		};
+		listenResize();
+		window.addEventListener("resize", listenResize, false);
+		addOnLeave(() => {
+			window.removeEventListener("resize", listenResize, false);
+		});
+		
+		let buttons =[["Demographics", "demographics"], ["Sub-tribes", "subtribes"], ["Etymology", "etymology"], ["Ancestral Lands", "ancestral"],
+		["Social Organization", "socorg"], ["History", "history"], ["Agriculture", "agriculture"], ["Customs", "customs"], ["Indigenous Beliefs", "beliefs"]];
+		
+		for (let h of buttons) {
+			/**
+			 * 
+			 <div style:float="right" style:position="relative"
+
+				listener:click="__script.showNote('Demographics', 'demographics');" style:background="#50a8"
+
+				style:width="15em" style:height="2em" style:display="flex" style:flex-direction="column"
+				style:justify-content="center" style:align-items="right" style:margin-top="3em" style:padding-left="2em" listener:mouseover="_this.style.background='#a0fa'" listener:mouseout="_this.style.background='#50a8'"
+				style:clip-path="polygon(0% 0%, 100% 0%, 100% 100%, 5% 100%)" style:margin-left="calc(25% - 15em)">
+				<te style:float="right" value="Demographics" style:color="#fff" style:font-size="1.5em"
+					style:font-family="helvetica" style:font-weight="bold" />
+			</div>
+ 			*/
+ 			let m = document.createElement("debb");
+ 			m.style="float:right; position:relative;background:#50a8;width:100%;height:2em; display:flex;flex-direction:column;justify-content:center;align-items:right;margin-top:0.2em;padding-left:0em;clip-path:polygon(0% 0%, 100% 0%, 100% 100%, 5% 100%)";
+ 			m.onclick=() => {
+ 			__local.showNote(h[0], h[1]);
+ 			}
+ 			//m.style.marginLeft= "calc(0)";
+ 			m.onmouseover=() => {
+ 			m.style.background='#a0fa';
+ 			}
+ 			m.onmouseout=() => {
+ 			m.style.background='#50a8';
+ 			}
+ 			let k = document.createElement("te");
+ 			m.append(k);
+ 			k.style="font-family:helvetica;font-weight:bold;color:#fff;font-size:1.2em;";
+ 			k.innerHTML="&nbsp&nbsp&nbsp&nbsp"+h[0];
+ 			
+ 			getElementById("lm").appendChild(m);
+ 			
+ 			
+		}
+		
+		
+	</script>
+</metadata>
+<content>
+	<div id="grid" style:position="relative" style:display="block" fill="true" style:overflow="hidden" style:background="#9990">
+		<div style:position="absolute" style:user-select="none" fill="true" style:display="flex"
+			style:justify-contents="center" style:align-items="center">
+			<photo src="images/fullscreen/kalinga.png" id="bg" style:position="absolute" style:user-select="none"
+				listener:contextmenu="" />
+
+
+		</div>
+		<div style:position="absolute" style:pointer-events="none" fill="true" style:background="#0009">
+		</div>
+		<div style:position="absolute" fill="true" style:pointer-events="none">
+			<div style:display="flex" style:flex-direction="column" style:position="absolute" style:bottom="0px"
+				style:width="100%" style:background="linear-gradient(to bottom, #0000, #000f)">
+				<te style:position="relative" style:margin-left="1%" animation="fade/800ms/1/ease-out/0s"
+					style:color="#fff" style:position="relative" style:opacity="0%" webstyle:font-size-em="1"
+					listener:animationend="event.target.style.opacity = '100%'"
+					value="Bodong, a Treaty Used by the Kalinga People"></te>
+				<te style:position="relative" style:margin-left="1%" animation="fade/800ms/1/ease-out/250ms"
+					style:color="#fff" style:opacity="0%" webstyle:font-size-em="2"
+					listener:animationend="event.target.style.opacity = '100%'" value="KALINGA"></te>
+			</div>
+		</div>
+		<div style:position="absolute" style:user-select="none" style:width="25%" style:height="100%" style:display="block">
+			<div style:position="relative" style:float="left" listener:click="loadURL('luzon');"
+				style:background="#50a8" style:width="7em" style:height="2em" style:display="flex"
+				style:flex-direction="column" style:justify-content="center" style:align-items="right"
+				style:margin-top="0.5em" style:padding-left="2em" listener:mouseover="_this.style.background='#a0fa'" listener:mouseout="_this.style.background='#50a8'"
+				style:clip-path="polygon(0% 0%, 100% 0%, 95% 100%, 0% 100%)" style:pointer-events="auto">
+				<te style:float="right" value="Back" style:color="#fff" style:font-size="1.5em"
+					style:font-family="helvetica" style:font-weight="bold" />
+			</div>
+
+		</div>
+		<div id="ml" style:position="absolute" style:margin-left="calc(100% - 60%)" style:user-select="none" style:background="linear-gradient(to right, #0000, #0000,#0000,#000)" style:width="60%" style:height="100%" style:display="block"
+			style:overflow="hidden scroll">
+		<div id="lm" style:position="absolute" style:user-select="none" style:width="100%" style:height="auto" style:display="flex"
+			style:flex-direction="column" style:align-items="flex-end">
+			<div style:float="right" style:position="relative"
+				style:width="100%" style:height="3em" style:pointer-events="none">
+			</div>
+		</div>
+		</div>
+
+
+
+		<div id="note-container" style:opacity="0" style:pointer-events="none" style:position="absolute" fill="true" style:display="flex" style:display="none"
+			style:justify-content="center" style:align-items="center" style:backdrop-filter="blur(2em)">
+
+			<div id="note-window" style:transition="width 0.25s ease-out, height 0.25s ease-out" style:display="flex" style:flex-direction="column" style:position="absolute" style:width="0%"
+				style:height="0%" style:background="#207a" style:border="0.2em solid #50fa">
+				<div style:display="flex" style:flex-direction="row" style:position="relative" style:width="100%"
+					style:height="1.3em" style:background="#f0fa">
+					<div listener:click="__script.hideNote();" style:display="flex" style:position="relative" style:width="5em" style:height="100%"
+						style:justify-content="center" style:align-items="center" style:background="#e06f" style:clip-path="polygon(0% 0%, 100% 0%, 95% 100%, 0% 100%)">
+						<te style:position="relative" style:color="#fff" webstyle:font-size-em="1.1" value="BACK"></te>
+					</div>
+					<div style:display="flex" style:position="relative" style:width="calc(100% - 5em)"
+						style:height="100%" style:justify-content="center" style:align-items="center"
+						>
+						<te id="header-title" style:position="relative" style:color="#fff" webstyle:font-size-em="1.1"
+							value="TITTLE"></te>
+					</div>
+				</div>
+				<div id="skrol" style:display="block"style:position="relative" style:width="100%"
+					style:overflow-y="scroll" style:height="calc(100% - 1.3em)" style:background="#0005" style:padding-left="0.2em" style:padding-right="0.1em">
+					<te id="note" style:position="relative" style:color="#fff" webstyle:font-size-em="1.1"
+							value="TITTLE"></te>
+				</div>
+			</div>
+
+
+		</div>
+
+
+
+
+	</div>
+</content>

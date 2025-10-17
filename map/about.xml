@@ -1,0 +1,85 @@
+<xml>
+
+</xml>
+<metadata>
+	<name>ISLANDS</name>
+	<title>Major Island Groups in The Philippines</title>
+	<keyframes>
+		<animation name="fade-right">
+			<keyframe t="0%" a="
+			 	opacity: 0%;
+				right: 11em;
+			 " />
+			<keyframe t="100%" a="
+			 	opacity: 100%;
+				right: 0em;
+			 " />
+		</animation>
+	</keyframes>
+	<script>
+		let logotext = getElementById("logotext");
+		logotext.innerHTML = "<tm style='font-family: enso'>JETKode</tm>&nbsp<tm style='font-family: copperplate'> Programming Cooperative</tm>";
+		logotext = getElementById("desc");
+		logotext.innerHTML = "<b style='font-family: enso; display: inline-block'>JETKode</b>&nbsp<b style='font-family: copperplate; display: inline-block'>Programming Cooperative</b> is a programming association that aims to develop applications that educate the readers about facts as well as games that test players’ memory. We, the SuperCreators, want to enlighten your knowledge through the use of our applications.";
+
+		__local.link = (link) => {
+			let a = document.createElement("a");
+			a.href = link;
+			a.target = "_blank";
+			a.click();
+		}
+
+		
+					let g = document.getElementsByTagName("JETK-head-button")[2];
+					g.style.display = "none";	
+
+	</script>
+</metadata>
+<content>
+	<div id="grid" style:display="block" style:position="relative" style:background="#9990" style:width="100%"
+		style:height="55%" style:overflow="hidden">
+		<div style:position="absolute" style:user-select="none" style:width="100%" style:height="100%"
+			style:display="flex" style:justify-content="center" style:align-items="center">
+			<photo src="images/fullscreen/kalinga.png" id="bg" style:position="absolute" style:user-select="none"
+				listener:contextmenu="" style:width="70em" style:height="auto" />
+		</div>
+		<div style:position="absolute" style:user-select="none" style:width="100%" style:height="100%"
+			style:display="flex" style:flex-direction="column" style:justify-content="center" style:align-items="center" style:background="#000a">
+			<photo src="/logo.png" id="logo" style:position="relative" style:user-select="none" style:width="6em"
+				style:height="6em" listener:contextmenu=""></photo>
+			<te style:position="relative" style:color="#fff" webstyle:font-size-em="1.6" id="logotext" value=""></te>
+		</div>
+
+
+	</div>
+	<div id="grid" style:display="flex" style:position="relative" style:background="#104" style:width="100%"
+		style:height="30%" style:overflow="hidden" style:flex-direction="row" style:justify-content="center" style:align-items="top">
+		<te  style:margin:-left="1em" style:margin:-right="1em" style:color="#fff" style:position="relative" style:text-align="center" value="Superior Creative Technologies " id="desc"></te>
+	</div>
+	<div id="grid" style:display="flex" style:position="relative" style:background="#444" style:width="100%"
+		style:height="5%" style:overflow="hidden" style:flex-direction="row" style:justify-content="center" style:align-items="top">
+		<te  style:margin:-left="1em" style:margin:-right="1em" style:color="#fff" style:position="relative" style:text-align="center" value="Got any inquiries? Contact us through these platforms:" webstyle:font-size-em="0.7"></te>
+	</div>
+	<div id="grid" style:display="flex" style:position="relative" style:background="#444" style:width="100%"
+		style:height="10%" style:overflow="hidden" style:flex-direction="row" style:justify-content="center" style:align-items="center">
+		<ros style:background="#0007" style:padding-right="0.25em" style:padding-left="0.25em" style:margin-right="0.25em" style:margin-left="0.25em" style:height="100%" style:display="flex" style:flex-direction="row" style:justify-content="center" style:align-items="center" listener:click="__script.link('http://ig.me');">
+			<photo src="images/ig.png" id="logo" style:position="relative" style:user-select="none" style:width="1em"
+				style:height="1em" style:margin-right="0.5em" listener:contextmenu=""></photo>
+			<te style:position="relative" style:color="#fff" webstyle:font-size-em="1" value="JETKode"></te>
+		</ros>
+		<ros style:background="#0007" style:padding-right="0.25em" style:padding-left="0.25em" style:margin-right="0.25em" style:margin-left="0.25em" style:height="100%" style:display="flex" style:flex-direction="row" style:justify-content="center" style:align-items="center" listener:click="__script.link('http://x.com');">
+			<photo src="images/x.jpg" id="logo" style:position="relative" style:user-select="none" style:width="1em"
+				style:height="1em" style:margin-right="0.5em" listener:contextmenu=""></photo>
+			<te style:position="relative" style:color="#fff" webstyle:font-size-em="1" value="JETKode"></te>
+		</ros>
+		<ros style:background="#0007" style:padding-right="0.25em" style:padding-left="0.25em" style:margin-right="0.25em" style:margin-left="0.25em" style:height="100%" style:display="flex" style:flex-direction="row" style:justify-content="center" style:align-items="center" listener:click="__script.link('http://fb.com');">
+			<photo src="images/fb.png" id="logo" style:position="relative" style:user-select="none" style:width="1em"
+				style:height="1em" style:margin-right="0.5em" listener:contextmenu=""></photo>
+			<te style:position="relative" style:color="#fff" webstyle:font-size-em="0.5	" value="JETKode Programming Cooperative"></te>
+		</ros>
+		
+		<ros style:background="#0007" style:padding-right="0.25em" style:padding-left="0.25em" style:margin-right="0.25em" style:margin-left="0.25em" style:height="100%" style:display="flex" style:flex-direction="row" style:justify-content="center" style:align-items="center">
+			<te style:position="relative" style:color="#fff" webstyle:font-size-em="0.75" value="Hotline (PH): 8482-5563 "></te>
+		</ros>
+	</div>
+</content>

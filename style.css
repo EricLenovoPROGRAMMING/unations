@@ -1,0 +1,154 @@
+@font-face {
+	font-family: copperplate;
+	src: url("fonts/cpstd.ttf") format("truetype")
+}
+@font-face {
+	font-family: enso;
+	src: url("fonts/enso.ttf") format("truetype")
+}
+@font-face {
+	font-family: icons;
+	src: url("fonts/fa-v4compatibility.ttf") format("ttf")
+}
+
+
+
+
+@keyframes rainbow-move {
+	from {
+		background-position-x: 0px;
+	}
+	to {
+		background-position-x: var(--width);
+	}
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0%;
+	}
+	to {
+		opacity: 100%;
+	}
+}
+
+@keyframes fade-out {
+	from {
+		opacity: 100%;
+	}
+	to {
+		opacity: 0%;
+	}
+}
+
+html, body {
+	margin: 0 0 0 0;
+}
+
+#CORE {
+	position: absolute;
+	display: block;
+	overflow: hidden;
+}
+
+#HEADER {
+	background: #000;
+	display: block;
+	width: 100%;
+	z-index: 100;
+	position: relative;
+}
+
+#HEADER-BACKGROUND {
+	background: linear-gradient(to left, #0ff, #07f, #0ff,#07f, #0ff,#07f, #0ff);
+	background-repeat: repeat-x;
+	width: 100%;
+	height: inherit;
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	align-items: center;
+	position: absolute;
+	--width: 482px;
+	animation: rainbow-move 4323ms infinite linear;
+}
+#HEADER-FOREGROUND {
+	background: #000000a4;
+	width: 100%;
+	height: inherit;
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	align-items: center;
+	position: absolute;
+}
+
+#CONTENT {
+	z-index: 1;
+	position: absolute;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+#logo-image {
+	width: 100%;
+	height: 100%;
+}
+
+#SEARCH-BUTTON > svg {
+	width: 1em;
+	height: 1em;
+}
+
+JETK-head-button {
+	width: 30%;
+	height: 100%;
+	vertical-align: center;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: enso;
+	border-radius: 2px;
+	margin-right: 3px;
+	background: #8833FF99;
+}
+
+JETK-head-buttontext {
+	color: #fff;
+}
+
+header1 {
+	width: 100%;
+	font-size: 2em;
+	clip-path: polygon(0 0, 92% 0, 100% 0, 97%  100%, 0 100%);
+	background: linear-gradient(to left, #50a, #70f);
+	padding-left: 0.5em;
+	padding-right: 1em;
+	padding-top: 0.25em;
+	padding-bottom: 0.25em;
+	color: #FFFF;
+	font-family: verdana;
+}
+#QUIZ {
+	background: none;
+	width: 4em;
+	justify-content: left;
+}
+
+te {
+	font-size: 1.5em;
+	font-family: Tahoma;
+	animation-name: none;
+}
+
+::-webkit-scrollbar {
+  position: absolute;
+	width: .4em;
+	background-color: #50a;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 0.4em;
+	background-color: #ff4;
+}

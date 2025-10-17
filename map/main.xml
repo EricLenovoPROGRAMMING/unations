@@ -1,0 +1,85 @@
+<metadata>
+ <name>MAIN MENU</name>
+ <title>Main Title</title>
+ <keyframes>
+  <animation name="fade-right">
+   <keyframe t="0%" a="
+			 	opacity: 0%;
+				right: 11em;
+			 " />
+   <keyframe t="100%" a="
+			 	opacity: 100%;
+				right: 0em;
+			 " />
+  </animation>
+  <animation name="hover">
+   <keyframe t="0%" a="
+			 	--red: 0%;
+				top: 11em;
+			 " />
+   <keyframe t="500%" a="
+			 	opacity: 100%;
+				right: 0em;
+			 " />
+  </animation>
+ </keyframes>
+ <script>
+  "use-strict";
+  let d = document.getElementsByTagName("JETK-head-button");
+  //console.log(d);
+  let isConfirm = true;
+  let isAway = false;
+  let fun = (event) => {
+   if (isAway) return;
+   //console.log (event.target.scrollTop, contentSize.height);'
+   let l = ((event.target.scrollTop / contentSize.height) > 0.9);
+   if (isConfirm !== (l)) {
+    isConfirm = (l);
+    for (let gi = 0; gi < 4; gi++) {
+     let g = d[gi];
+     g.style.display = (isConfirm && gi != 0) ? "flex" : "none";
+     if (g.id == "QUIZ") g.style.display = !(isConfirm && gi != 0) ? "flex" : "none";
+     
+    }
+   }
+   
+  }
+  
+  addOnLeave(() => {
+   //for (let ts of ["scroll"]) content.removeEventListener(ts, fun);
+   //window.removeEventListener("resize", fun);
+  });
+  
+  //for (let ts of ["scroll"]) content.addEventListener(ts, fun);
+  //window.addEventListener("resize", fun);
+  /*fun({target: {	
+  	scrollTop: -1
+  }});*/
+ </script>
+ 
+ <style>
+ </style>
+ 
+</metadata>
+<content>
+ <div style:color="#fff">
+  <div style:background="#699" style:position="relative" fill="true" style:display="flex" style:flex-direction="column" style:justify-content="center" style:align-items="center">
+   <div style:position="relative" style:user-select="none" style:display="flex" style:flex-direction="column" style:justify-content="center" style:align-items="center">
+    <photo src="images/un_PNG13.png" style:user-select="none" listener:contextmenu="" style:position="relative" />
+
+   </div>
+      <b style:color="#fff" style:position="relative" value="United Nations"></b>
+
+   
+   
+  </div>
+ </div>
+ <div style:display="inline-block" style:font-family="arial" style:width="100%" webstyle:padding-left="0.4" webstyle:padding-right="0.4" style:color="#000" style:background="#fff">
+  <div value="About United Nations" webstyle:margin-left="0.4" webstyle:font-size-em="2"></div>
+
+  
+ </div>
+ 
+ 
+ </div>
+</content>
